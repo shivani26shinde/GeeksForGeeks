@@ -11,16 +11,16 @@ class Ideone
 		if(start == target){
 			return steps;
 		}
-		if(start>target){
+		if(Math.abs(start)>target){
 			return Integer.MAX_VALUE;
 		}
-		int right = MinSteps(start+steps);
-		int left = MinSteps(start-steps);
+		int right = MinSteps(start+steps+1, steps+1);
+		int left = MinSteps(start-steps-1, steps+1);
 		
 		return Math.min(right,left);
 	}
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		System.out.println(MinSteps(0,1));
+		System.out.println(MinSteps(0,0));
 	}
 }
